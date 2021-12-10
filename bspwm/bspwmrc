@@ -1,0 +1,56 @@
+#! /bin/sh
+
+# cursor
+xsetroot -cursor_name arrow
+
+# feh
+# feh --bg-fill ~/Pictures/wallhalla-D0ZO1mlT9Ag.jpg
+# feh --bg-fill /home/midwest/.config/themes/current/bg.png
+. /home/midwest/.config/themes/themes.sh
+theme_set_bg
+
+# dunst
+dunst -config ~/.config/dunst/dunstrc &
+
+# compton
+compton --config ~/.config/compton/compton.conf &
+
+sxhkd &
+
+# keyboard
+. /home/midwest/.config/bspwm/xkbmap
+
+polybar --config=/home/midwest/.config/polybar/config main &
+
+bspc monitor -d 1 2 3 4 5 6
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+bspc rule -a "Closing cascadeur" state=floating
+
+# Borders and gaps
+bspc config border_width        4
+bspc config window_gap          20
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+
+
+# Border colors
+bspc config normal_border_color "#2c1b27"
+bspc config focused_border_color "#691d2f"
+bspc config urgent_border_color "#B58900"
+bspc config presel_border_color "#26E2FF"
+bspc config presel_feedback_color "#ab87d1"
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config top_monocle_padding  -5
+
+bspc config auto_alternate true
+bspc config auto_cancel true
+bspc config initial_polarity first_child
+
