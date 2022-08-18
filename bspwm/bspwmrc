@@ -1,5 +1,6 @@
 #! /bin/sh
 
+sxhkd &
 # cursor
 xsetroot -cursor_name arrow
 
@@ -15,7 +16,6 @@ dunst -config ~/.config/dunst/dunstrc &
 # compton
 compton --config ~/.config/compton/compton.conf &
 
-sxhkd &
 
 # keyboard
 . /home/midwest/.config/bspwm/xkbmap
