@@ -11,7 +11,7 @@ alert = #bd2c40
 line = #691d2f
 
 [bar/main]
-monitor = DP-0
+monitor = eDP
 width = 100%
 height = 35
 ;offset-x = 1%
@@ -44,7 +44,7 @@ font-1 = "mplus Nerd Font Mono,M+ 1m:style=regular:size=17;6"
 ;mount-sdc1 mount-sdd2 mount-sde2 mount-sdf1
 ;modules-left = spotify-icon spotify-prev spotify-play-pause spotify-next spotify
 modules-center = bspwm cpu
-modules-right = xkeyboard pulseaudio date powermenu updates
+modules-right = xkeyboard pulseaudio date powermenu updates battery
 
 tray-position = right
 tray-padding = 2

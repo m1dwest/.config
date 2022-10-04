@@ -13,8 +13,8 @@ theme_set_bg
 # dunst
 dunst -config ~/.config/dunst/dunstrc &
 
-# compton
-compton --config ~/.config/compton/compton.conf &
+# picom
+picom --config ~/.config/compton/compton.conf &
 
 
 # keyboard
