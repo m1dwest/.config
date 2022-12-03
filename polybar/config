@@ -8,7 +8,7 @@ background-alt = #00000000
 primary = #4286f4
 secondary = #e60053
 alert = #bd2c40
-line = #691d2f
+line = #eb6f92
 
 [bar/main]
 monitor = eDP
@@ -36,71 +36,21 @@ module-margin-right = 2
 
 ;font-0 = "San Francisco Display:style=Light:size=22;8"
 font-0 = Iosevka nerd Font:style=Medium:size=18;6"
-;font-0 = "Ubuntu Nerd Font:style=Regular:size=20;6"
-font-1 = "mplus Nerd Font Mono,M+ 1m:style=regular:size=17;6"
+font-1 = Iosevka nerd Font:style=Medium:size=14;6"
+;font-1 = "mplus Nerd Font Mono,M+ 1m:style=regular:size=17;6"
 
 ;modules-left = bspwm node-status-primary
 ;modules-left = label-mnt mount-sdb1
 ;mount-sdc1 mount-sdd2 mount-sde2 mount-sdf1
 ;modules-left = spotify-icon spotify-prev spotify-play-pause spotify-next spotify
-modules-center = bspwm cpu
-modules-right = xkeyboard pulseaudio date powermenu updates battery
+modules-left = ubuntu-icon bspwm ss redshift
+modules-center = date
+modules-right = xkeyboard pulseaudio battery
 
 tray-position = right
 tray-padding = 2
 tray-maxsize = 26
-;tray-background = #0063ff
-
-wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true to prevent bspwm to reserve screen space for the bar
-enable-ipc = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/focus]
-monitor = DP-0
-width = 100%
-height = 35
-;offset-x = 1%
-;offset-y = 1%
-;radius = 6.0
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-overline-size = 4
-overline-color = ${colors.line}
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-;font-0 = "San Francisco Display:style=Light:size=22;8"
-font-0 = "Ubuntu Nerd Font:style=Regular:size=20;5"
-
-;modules-left = bspwm node-status-primary
-;mount-sdc1 mount-sdd2 mount-sde2 mount-sdf1
-modules-center = bspwm
-modules-right = xkeyboard date
-
-;tray-position = right
-;tray-padding = 2
-;tray-maxsize = 26
+tray-offset-y = 2
 ;tray-background = #0063ff
 
 wm-restack = bspwm
@@ -133,7 +83,6 @@ format-prefix-underline = ${colors.secondary}
 label-layout = %icon%
 label-layout-underline = ${colors.secondary}
 
-;layout-icon-default = 
 layout-icon-0 = ru;RU
 layout-icon-1 = us;US
 
@@ -163,21 +112,18 @@ pin-workspace = true
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-overline= ${colors.line}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-padding = 2
+label-occupied-padding = 1
 
 label-urgent = %name%!
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
+label-empty-padding = 1
 
 [module/mpd]
 type = internal/mpd
@@ -278,7 +224,7 @@ date-alt = "%Y-%m-%d "
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+;format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -343,34 +289,29 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 98
+full-at = 95
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging = "<ramp-capacity> <label-charging>"
+format-charging-prefix = "ﮣ "
+!label-charging = Charging %time% %consumption%
+label-charging = %percentage%
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging = "<ramp-capacity> <label-discharging>"
+!label-discharging = Discharging %time% %consumption%
+label-discharging = %percentage%
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full = " "
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-foreground = ${colors.foreground}
 
 [module/temperature]
 type = internal/temperature
@@ -456,6 +397,10 @@ content = mnt:
 type = custom/script
 exec = ~/.config/polybar/scripts/mount.sh /dev/sdb1
 
+[module/ubuntu-icon]
+type = custom/text
+content = " %{F#DD4814}%{F-}"
+
 [module/spotify-icon]
 type = custom/text
 content = " %{F#1DB954}阮%{F-}"
@@ -488,3 +433,18 @@ click-left = playerctl next -p spotify; polybar-msg hook spotify 1
 type = custom/script
 exec = polybar-msg hook spotify 1 >/dev/null
 interval = 5
+
+[module/ss]
+type = custom/ipc
+initial = 1
+;hook-0 = echo "%{o#524f67}%{+o}%{T2}   %{T-}%{-o}"
+hook-0 = echo "%{o#524f67}%{+o} ss:TCP %{-o}"
+hook-1 = echo "%{o#eb6f92}%{+o} ss:TCP %{-o}"
+click-left = sudo /home/midwest/bin/polybar/ss-toggle
+
+[module/redshift]
+type = custom/ipc
+initial = 1
+hook-0 = echo "%{o#524f67}%{+o} dim %{-o}"
+hook-1 = echo "%{o#eb6f92}%{+o} dim %{-o}"
+click-left = /home/midwest/bin/polybar/redshift
