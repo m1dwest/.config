@@ -43,7 +43,7 @@ font-1 = Iosevka nerd Font:style=Medium:size=14;6"
 ;modules-left = label-mnt mount-sdb1
 ;mount-sdc1 mount-sdd2 mount-sde2 mount-sdf1
 ;modules-left = spotify-icon spotify-prev spotify-play-pause spotify-next spotify
-modules-left = ubuntu-icon bspwm ss redshift
+modules-left = ubuntu-icon bspwm ss redshift dunst
 modules-center = date
 modules-right = xkeyboard pulseaudio battery
 
@@ -440,7 +440,7 @@ initial = 1
 ;hook-0 = echo "%{o#524f67}%{+o}%{T2}   %{T-}%{-o}"
 hook-0 = echo "%{o#524f67}%{+o} ss:TCP %{-o}"
 hook-1 = echo "%{o#eb6f92}%{+o} ss:TCP %{-o}"
-click-left = sudo /home/midwest/bin/polybar/ss-toggle
+click-left = sudo /home/midwest/bin/polybar/ss
 
 [module/redshift]
 type = custom/ipc
@@ -448,3 +448,11 @@ initial = 1
 hook-0 = echo "%{o#524f67}%{+o} dim %{-o}"
 hook-1 = echo "%{o#eb6f92}%{+o} dim %{-o}"
 click-left = /home/midwest/bin/polybar/redshift
+
+[module/dunst]
+type = custom/ipc
+initial = 1
+hook-0 = echo "  "
+hook-1 = echo "  "
+click-left = /home/midwest/bin/polybar/dunst-pause
+click-right = dunstctl set-paused false; dunstctl history-pop; polybar-msg hook dunst 1

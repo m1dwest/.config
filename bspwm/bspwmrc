@@ -43,3 +43,4 @@ bspc config initial_polarity        first_child
 
 # Rules
 bspc rule -a "*:*:Closing Cascadeur" state=floating
+bspc rule -a "Slack" desktop=MSG
