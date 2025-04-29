@@ -1,15 +1,17 @@
-import = [
+general.import = [
     # Color Schemes
     # "~/.config/alacritty/themes/catppuccin-frappe.toml",
     # "~/.config/alacritty/themes/catppuccin-latte.toml",
-    # "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+    # "~/.config/alacritty/themes/catppuccin-macchiato.toml",
     # "~/.config/alacritty/themes/catppuccin-mocha.toml",
+    # "~/.config/alacritty/themes/cyberdream.toml",
     # "~/.config/alacritty/themes/rose-pine-dawn.toml",
     # "~/.config/alacritty/themes/rose-pine-moon.toml",
-    "~/.config/alacritty/themes/rose-pine.toml",
+    "~/.config/alacritty/themes/oxocarbon-dark.toml",
+    # "~/.config/alacritty/themes/rose-pine.toml",
     #
     # Platform
-    "~/.config/alacritty/platforms/sumire.toml"
+    "~/.config/alacritty/platforms/mbp16.toml"
 ]
 
 [env]
